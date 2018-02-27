@@ -1,0 +1,33 @@
+*** Settings ***
+Documentation  User Story:
+...
+...    As a registered user of Gotouche,
+...
+...    I should be able to Login into the application successfully using valid Mobile number and its corresponding Password
+...
+...    I should be able to login into the application successfully using Email Address and its corresponding Password
+
+Library  Selenium2Library
+Library  com.tigerspike.amazon.keywords.KeywordImplementations
+
+Test Setup       Set up
+Test Teardown    Tear Down
+
+*** Variables ***
+${URL} =  https://www.amazon.com
+${BROWSER}=  firefox
+
+*** Test Cases ***
+
+Scenario: Login UserCase with Mobile Number
+
+    [Tags]    Feature Testing
+    
+	Given I am at the Amazon Home Screen  ${URL}
+	
+	
+	
+
+	
+    
+    
