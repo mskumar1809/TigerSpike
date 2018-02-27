@@ -10,12 +10,12 @@ Documentation  User Story:
 Library  Selenium2Library
 Library  com.tigerspike.amazon.keywords.KeywordImplementations
 
-Test Setup       Set up
+Test Setup       Set up  ${BROWSER}
 Test Teardown    Tear Down
 
 *** Variables ***
 ${URL} =  https://www.amazon.com
-${BROWSER}=  firefox
+${BROWSER}=  chrome
 
 *** Test Cases ***
 

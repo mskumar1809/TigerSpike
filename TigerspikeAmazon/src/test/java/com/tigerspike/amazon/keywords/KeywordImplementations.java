@@ -7,7 +7,9 @@ import org.robotframework.javalib.annotation.RobotKeyword;
 import org.robotframework.javalib.annotation.RobotKeywords;
 import org.testng.Assert;
 
-import com.tigerspike.amazon.pages.AmazonLandingPage;;
+import com.tigerspike.amazon.pages.AmazonLandingPage;
+
+import io.github.bonigarcia.wdm.WebDriverManager;;
 
 @RobotKeywords
 
@@ -18,17 +20,17 @@ public class KeywordImplementations {
 	
 
 	@RobotKeyword("Set Up")
-	//@ArgumentNames({"BROWSER"})
-	public void setUp() {
+	@ArgumentNames({"BROWSER"})
+	public void setUp(String Browser) {
 		
-//	if(Browser.equals("chrome")) {
-//	 driver = new ChromeDriver();
-//	
-//	}
-	// else if(Browser.equals("firefox")||Browser.equals("ff")) {
-		System.setProperty("webdriver.gecko.driver", "/Users/sampathkumar/Documents/geckodriver");
+	if(Browser.equals("chrome")) {
+	 driver = new ChromeDriver();
+	
+	}
+	 else if(Browser.equals("firefox")||Browser.equals("ff")) {
+		WebDriverManager.firefoxdriver().setup();
 		 driver = new FirefoxDriver(); 
-	// }
+	}
 	 
 	 objLandingPage = new AmazonLandingPage(driver);
 	}
