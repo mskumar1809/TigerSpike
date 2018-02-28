@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Testing {
 
@@ -20,6 +22,7 @@ public class Testing {
 		WebDriver driver = new ChromeDriver();
 		By Brandslist = By.xpath("//html//ul[19]/div[1]");
 		By SeeMoreBrands = By.xpath("//*[@id='leftNav']/ul[19]/li/span/a/span");
+		
 				
 		
 		
@@ -38,17 +41,15 @@ public class Testing {
 		jse2.executeScript("arguments[0].scrollIntoView()", myelement); 
 		driver.findElement(SeeMoreBrands).click();
 		
-		for(int i =0;i<TopFiveBrands.size();i++) {
+		for(int i =0;i<=TopFiveBrands.size()-1;i++) {
 			String Brand = TopFiveBrands.get(i);
-			System.out.println(Brand);
+			System.out.println(TopFiveBrands.size());
+			System.out.println(i + Brand);
 			driver.findElement(By.xpath("//span[@class='refinementLink'][contains(text(), '"+Brand+"' )]")).click();
-			Thread.sleep(4000);
-			JavascriptExecutor jse = (JavascriptExecutor)driver;
-			jse2.executeScript("scroll(350, 0)"); 
-			Thread.sleep(4000);
+			Thread.sleep(3000);
 			WebElement myelement2 = driver.findElement(By.xpath("//html//ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-base']/li[2]/span[1]/a[1]/span[1]"));
-			myelement2.click();
 			
+			jse2.executeScript("arguments[0].click();", myelement2);	
 		}
 		
 		
