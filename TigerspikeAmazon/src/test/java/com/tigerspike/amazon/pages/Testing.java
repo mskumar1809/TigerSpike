@@ -24,7 +24,6 @@ public class Testing {
 		By SeeMoreBrands = By.xpath("//*[@id='leftNav']/ul[19]/li/span/a/span");
 		
 			
-		
 		List<String> TopFiveBrands = new ArrayList<String>();
 
 		driver.get("https://www.amazon.in/s/ref=sr_ex_p_89_0?rh=n%3A976392031%2Cn%3A%21976393031%2Cn%3A1375424031&bbn=1375424031&ie=UTF8&qid=1519799890&ajr=2");
@@ -45,7 +44,6 @@ public class Testing {
 			System.out.println(TopFiveBrands.size());
 			System.out.println(i + Brand);
 			driver.findElement(By.xpath("//span[@class='refinementLink'][contains(text(), '"+Brand+"' )]")).click();
-			Thread.sleep(3000);
 			WebElement myelement2 = driver.findElement(By.xpath("//html//ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-base']/li[2]/span[1]/a[1]/span[1]"));
 			if(i == 4) {
 				break;

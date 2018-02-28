@@ -62,10 +62,16 @@ public class KeywordImplementations {
 	}
 
 	@RobotKeyword("I select the category")
-	@ArgumentNames({ "CATEGORY"})
+	@ArgumentNames({"CATEGORY"})
 	public void iSelectTheCategory(String Category) {
 		objSearchPage.selectCategory(Category);
 		
+	}
+	
+	@RobotKeyword("I select top five brands")
+	public void iSelectTopFiveBrands() {
+		objSearchPage.selectTopFiveBrands();
+
 	}
 
 

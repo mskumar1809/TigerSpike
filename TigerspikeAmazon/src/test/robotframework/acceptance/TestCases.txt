@@ -7,14 +7,13 @@ Documentation  User Story:
 ...
 ...    I should be able to login into the application successfully using Email Address and its corresponding Password
 
-Library  Selenium2Library
 Library  com.tigerspike.amazon.keywords.KeywordImplementations
 
 Test Setup       Set up  ${BROWSER}
 Test Teardown    Tear Down
 
 *** Variables ***
-${URL} =  https://www.amazon.com
+${URL} =  https://www.amazon.in
 ${BROWSER}=  chrome
 ${EMAIL}=  makasampath@gmail.com
 ${PASSWORD}=  Work2win$
@@ -29,7 +28,7 @@ Scenario: Search products
 	Given I am at the Amazon Home Screen  ${URL}
 	When I log into Amazon  ${EMAIL}  ${PASSWORD}
 	And I select the category  ${CATEGORY}
-	And I select 
+	And I select top five brands
 	
 	
 	
