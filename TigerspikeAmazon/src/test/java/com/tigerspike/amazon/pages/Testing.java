@@ -23,8 +23,7 @@ public class Testing {
 		By Brandslist = By.xpath("//html//ul[19]/div[1]");
 		By SeeMoreBrands = By.xpath("//*[@id='leftNav']/ul[19]/li/span/a/span");
 		
-				
-		
+			
 		
 		List<String> TopFiveBrands = new ArrayList<String>();
 
@@ -48,13 +47,15 @@ public class Testing {
 			driver.findElement(By.xpath("//span[@class='refinementLink'][contains(text(), '"+Brand+"' )]")).click();
 			Thread.sleep(3000);
 			WebElement myelement2 = driver.findElement(By.xpath("//html//ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-base']/li[2]/span[1]/a[1]/span[1]"));
-			
+			if(i == 4) {
+				break;
+			}
 			jse2.executeScript("arguments[0].click();", myelement2);	
 		}
 		
-		
-		
-		
+		System.out.println("Came out Successfully");
+		driver.quit();
+	
 	}
 
 }
