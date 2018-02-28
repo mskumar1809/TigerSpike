@@ -18,6 +18,7 @@ ${URL} =  https://www.amazon.com
 ${BROWSER}=  chrome
 ${EMAIL}=  makasampath@gmail.com
 ${PASSWORD}=  Work2win$
+${CATEGORY}=  Watches
 
 *** Test Cases ***
 
@@ -27,6 +28,9 @@ Scenario: Search products
     
 	Given I am at the Amazon Home Screen  ${URL}
 	When I log into Amazon  ${EMAIL}  ${PASSWORD}
+	And I select the category  ${CATEGORY}
+	And I select 
+	
 	
 	
 	

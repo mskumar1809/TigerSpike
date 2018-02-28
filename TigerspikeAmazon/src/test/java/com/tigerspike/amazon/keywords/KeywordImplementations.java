@@ -5,12 +5,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.robotframework.javalib.annotation.ArgumentNames;
 import org.robotframework.javalib.annotation.RobotKeyword;
 import org.robotframework.javalib.annotation.RobotKeywords;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.testng.Assert;
 
 import com.tigerspike.amazon.pages.AmazonLandingPage;
 import com.tigerspike.amazon.pages.AmazonLoginPage;
+import com.tigerspike.amazon.pages.AmazonSearchPage;
 
-import io.github.bonigarcia.wdm.WebDriverManager;;
 
 @RobotKeywords
 
@@ -18,7 +19,7 @@ public class KeywordImplementations {
 	static WebDriver driver;
 	AmazonLandingPage objLandingPage;
 	AmazonLoginPage objLoginPage;
-
+	AmazonSearchPage objSearchPage;
 	
 
 	@RobotKeyword("Set Up")
@@ -37,6 +38,7 @@ public class KeywordImplementations {
 	 
 	 objLandingPage = new AmazonLandingPage(driver);
 	 objLoginPage = new AmazonLoginPage(driver);
+	 objSearchPage = new AmazonSearchPage(driver);
 	 
 	}
 	
@@ -59,6 +61,12 @@ public class KeywordImplementations {
 		objLoginPage.loginWithValidCredentials(Email, Password);
 	}
 
+	@RobotKeyword("I select the category")
+	@ArgumentNames({ "CATEGORY"})
+	public void iSelectTheCategory(String Category) {
+		objSearchPage.selectCategory(Category);
+		
+	}
 
 
 	@RobotKeyword("Tear Down")
