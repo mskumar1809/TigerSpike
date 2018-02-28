@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation  User Story:
 ...
-...    As a registered user of Gotouche,
+...    As a Logged in user of Amazon,
 ...
 ...    I should be able to Login into the application successfully using valid Mobile number and its corresponding Password
 ...
@@ -14,10 +14,10 @@ Test Teardown    Tear Down
 
 *** Variables ***
 ${URL} =  https://www.amazon.in
-${BROWSER}=  chrome
+${BROWSER}=  firefox
 ${EMAIL}=  makasampath@gmail.com
 ${PASSWORD}=  Work2win$
-${CATEGORY}=  Watches
+${CATEGORY}=  Laptops
 
 *** Test Cases ***
 
@@ -29,6 +29,11 @@ Scenario: Search products
 	When I log into Amazon  ${EMAIL}  ${PASSWORD}
 	And I select the category  ${CATEGORY}
 	And I select top five brands
+	And I select desired product from results
+	And I add the product to the cart
+	
+	
+	
 	
 	
 	

@@ -18,9 +18,11 @@ public AmazonLandingPage(WebDriver driver) {
 	}
 
 
-public void navigateToLoginScreen() {
+public void navigateToLoginScreen() throws InterruptedException {
 	Actions action = new Actions(driver);
+	Thread.sleep(6000);
 	action.moveToElement(driver.findElement(HoverToSignIn)).build().perform();
+	Thread.sleep(2000);
 	driver.findElement(SignInButton).click();
 	
 }

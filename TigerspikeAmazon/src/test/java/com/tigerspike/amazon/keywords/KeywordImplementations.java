@@ -56,7 +56,7 @@ public class KeywordImplementations {
 	
 	@RobotKeyword("I log into Amazon")
 	@ArgumentNames({ "EMAIL", "PASSWORD"})
-	public void iLogIntoAmazon(String Email, String Password) {
+	public void iLogIntoAmazon(String Email, String Password) throws InterruptedException {
 		objLandingPage.navigateToLoginScreen();
 		objLoginPage.loginWithValidCredentials(Email, Password);
 	}
@@ -69,12 +69,20 @@ public class KeywordImplementations {
 	}
 	
 	@RobotKeyword("I select top five brands")
-	public void iSelectTopFiveBrands() {
+	public void iSelectTopFiveBrands() throws InterruptedException {
 		objSearchPage.selectTopFiveBrands();
-
+	}
+	
+	@RobotKeyword("I select desired product from results")
+	public void iSelectDesiredProductFromResults() {
+		objSearchPage.selectDesiredProduct();
 	}
 
-
+	@RobotKeyword("I add the product to the cart")
+	public void iAddTheProductToTheCart() throws InterruptedException {
+		objSearchPage.addProductToCart();
+	}
+	
 	@RobotKeyword("Tear Down")
 	public void tearDown() {
 		driver.quit();
