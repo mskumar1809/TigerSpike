@@ -8,6 +8,7 @@ import org.robotframework.javalib.annotation.RobotKeywords;
 import org.testng.Assert;
 
 import com.tigerspike.amazon.pages.AmazonLandingPage;
+import com.tigerspike.amazon.pages.AmazonLoginPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;;
 
@@ -16,6 +17,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;;
 public class KeywordImplementations {
 	static WebDriver driver;
 	AmazonLandingPage objLandingPage;
+	AmazonLoginPage objLoginPage;
 
 	
 
@@ -24,6 +26,7 @@ public class KeywordImplementations {
 	public void setUp(String Browser) {
 		
 	if(Browser.equals("chrome")) {
+	WebDriverManager.chromedriver().setup();
 	 driver = new ChromeDriver();
 	
 	}
@@ -33,6 +36,8 @@ public class KeywordImplementations {
 	}
 	 
 	 objLandingPage = new AmazonLandingPage(driver);
+	 objLoginPage = new AmazonLoginPage(driver);
+	 
 	}
 	
 	@RobotKeyword("I am at the Amazon Home Screen")
@@ -41,11 +46,17 @@ public class KeywordImplementations {
 		driver.get(url);
 		Assert.assertTrue(driver.getCurrentUrl().contains(url));
 		maximizeBrowser();
-
 	}
 	
 	public void maximizeBrowser() {
 		driver.manage().window().maximize();
+	}
+	
+	@RobotKeyword("I log into Amazon")
+	@ArgumentNames({ "EMAIL", "PASSWORD"})
+	public void iLogIntoAmazon(String Email, String Password) {
+		objLandingPage.navigateToLoginScreen();
+		objLoginPage.loginWithValidCredentials(Email, Password);
 	}
 
 

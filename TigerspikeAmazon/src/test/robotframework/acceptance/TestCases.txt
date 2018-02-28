@@ -16,14 +16,17 @@ Test Teardown    Tear Down
 *** Variables ***
 ${URL} =  https://www.amazon.com
 ${BROWSER}=  chrome
+${EMAIL}=  makasampath@gmail.com
+${PASSWORD}=  Work2win$
 
 *** Test Cases ***
 
-Scenario: Login UserCase with Mobile Number
+Scenario: Search products
 
     [Tags]    Feature Testing
     
 	Given I am at the Amazon Home Screen  ${URL}
+	When I log into Amazon  ${EMAIL}  ${PASSWORD}
 	
 	
 	
