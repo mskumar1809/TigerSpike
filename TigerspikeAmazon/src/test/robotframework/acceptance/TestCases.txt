@@ -14,14 +14,14 @@ Test Teardown    Tear Down
 
 *** Variables ***
 ${URL} =  https://www.amazon.in
-${BROWSER}=  chrome
+${BROWSER}=  firefox
 ${EMAIL}=  makasampath@gmail.com
 ${PASSWORD}=  Work2win$
 ${CATEGORY}=  Laptops
 
 *** Test Cases ***
 
-Scenario: Search products
+Scenario: Product Checkout from Search of Top 5 Brands of Laptops 
 
     [Tags]    Feature Testing
     
@@ -31,6 +31,8 @@ Scenario: Search products
 	And I select top five brands
 	And I select desired product from results
 	And I add the product to the cart
+	And I checkout the product
+	Then I should be at payment screen
 	
 	
 	

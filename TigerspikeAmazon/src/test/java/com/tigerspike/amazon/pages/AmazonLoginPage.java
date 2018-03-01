@@ -31,7 +31,7 @@ public class AmazonLoginPage {
 		driver.findElement(Login).click();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		assertTrue(driver.findElement(CustomUser).getText().contains("Sampath"));
-
+		System.out.println("Successfully Logged in with given Credentials");
 	}
 
 }
