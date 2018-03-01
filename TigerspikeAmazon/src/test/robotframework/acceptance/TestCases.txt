@@ -14,7 +14,7 @@ Test Teardown    Tear Down
 
 *** Variables ***
 ${URL} =  https://www.amazon.in
-${BROWSER}=  firefox
+${BROWSER}=  chrome
 ${EMAIL}=  makasampath@gmail.com
 ${PASSWORD}=  Work2win$
 ${CATEGORY}=  Laptops

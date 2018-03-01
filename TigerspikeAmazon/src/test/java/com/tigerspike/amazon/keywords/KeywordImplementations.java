@@ -6,12 +6,10 @@ import org.robotframework.javalib.annotation.ArgumentNames;
 import org.robotframework.javalib.annotation.RobotKeyword;
 import org.robotframework.javalib.annotation.RobotKeywords;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.testng.Assert;
-
 import com.tigerspike.amazon.pages.AmazonLandingPage;
 import com.tigerspike.amazon.pages.AmazonLoginPage;
 import com.tigerspike.amazon.pages.AmazonSearchPage;
-
+import com.tigerspike.amazon.pages.AmazonProductCheckOut;
 
 @RobotKeywords
 
@@ -20,6 +18,7 @@ public class KeywordImplementations {
 	AmazonLandingPage objLandingPage;
 	AmazonLoginPage objLoginPage;
 	AmazonSearchPage objSearchPage;
+	AmazonProductCheckOut objProductCheckout;
 	
 
 	@RobotKeyword("Set Up")
@@ -39,19 +38,14 @@ public class KeywordImplementations {
 	 objLandingPage = new AmazonLandingPage(driver);
 	 objLoginPage = new AmazonLoginPage(driver);
 	 objSearchPage = new AmazonSearchPage(driver);
+	 objProductCheckout = new AmazonProductCheckOut(driver);
 	 
 	}
 	
 	@RobotKeyword("I am at the Amazon Home Screen")
 	@ArgumentNames({ "URL"})
 	public void iAmAtTheAmazonHomeScreen(String url) {
-		driver.get(url);
-		Assert.assertTrue(driver.getCurrentUrl().contains(url));
-		maximizeBrowser();
-	}
-	
-	public void maximizeBrowser() {
-		driver.manage().window().maximize();
+		objLandingPage.navigateToLandingPage(url);
 	}
 	
 	@RobotKeyword("I log into Amazon")
@@ -80,7 +74,7 @@ public class KeywordImplementations {
 
 	@RobotKeyword("I add the product to the cart")
 	public void iAddTheProductToTheCart() throws InterruptedException {
-		objSearchPage.addProductToCart();
+		objProductCheckout.addProductToCart();
 	}
 	
 	@RobotKeyword("Tear Down")
