@@ -6,7 +6,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class AmazonLandingPage {
@@ -22,12 +25,10 @@ public AmazonLandingPage(WebDriver driver) {
 
 public void navigateToLoginScreen() throws InterruptedException {
 	Actions action = new Actions(driver);
-	Thread.sleep(4000);
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	action.moveToElement(driver.findElement(HoverToSignIn)).build().perform();
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	Thread.sleep(4000);
-	driver.findElement(SignInButton).click();
+	WebDriverWait wait = new WebDriverWait(driver, 15);
+	WebElement element = wait.until(ExpectedConditions.visibilityOf(driver.findElement(SignInButton)));
+	element.click();
 	assertTrue(driver.getTitle().contains("Sign In"));
 	System.out.println("Navigated to Login Screen");
 	}

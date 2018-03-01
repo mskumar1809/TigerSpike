@@ -1,11 +1,8 @@
 *** Settings ***
 Documentation  User Story:
 ...
-...    As a Logged in user of Amazon,
-...
-...    I should be able to Login into the application successfully using valid Mobile number and its corresponding Password
-...
-...    I should be able to login into the application successfully using Email Address and its corresponding Password
+...    As a logged in member of Amazon I want to search for top 5 brands of any category and add to
+...	   shopping cart proceed until payment page
 
 Library  com.tigerspike.amazon.keywords.KeywordImplementations
 
@@ -14,7 +11,7 @@ Test Teardown    Tear Down
 
 *** Variables ***
 ${URL} =  https://www.amazon.in
-${BROWSER}=  firefox
+${BROWSER}=  chrome
 ${EMAIL}=  makasampath@gmail.com
 ${PASSWORD}=  Work2win$
 ${CATEGORY}=  Laptops

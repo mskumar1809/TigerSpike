@@ -64,9 +64,12 @@ public class AmazonSearchPage {
 
 	public void selectDesiredProduct() throws InterruptedException {
 		driver.findElement(DesiredProduct).click();
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs2.get(1));
+		Thread.sleep(3000);// Forced step to handle switching of tabs in Firefox
+							// In Chrome the execution works fine
+							// without this step.
 		assertTrue(driver.getTitle().contains("Apple"));
 		System.out.println("Successfully Selected Desired Product");
 

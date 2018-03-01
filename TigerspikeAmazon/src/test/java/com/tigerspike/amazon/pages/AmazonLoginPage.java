@@ -6,6 +6,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AmazonLoginPage {
 
@@ -29,8 +32,9 @@ public class AmazonLoginPage {
 		driver.findElement(Continue).click();
 		driver.findElement(Password).sendKeys(password2);
 		driver.findElement(Login).click();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		assertTrue(driver.findElement(CustomUser).getText().contains("Sampath"));
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebElement element = wait.until(ExpectedConditions.visibilityOf(driver.findElement(CustomUser)));
+		assertTrue(element.getText().contains("Sampath"));
 		System.out.println("Successfully Logged in with given Credentials");
 	}
 
