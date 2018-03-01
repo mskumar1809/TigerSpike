@@ -23,9 +23,9 @@ Pre-requisites for running the code are as below.
 •	Maven <br/>
 •	Google Chrome Driver and Gecko driver set to path with supported versions of browsers for respective drivers <br/>
 
-Also, please find the below link for the demo video of the automation framework, which I have worked on to automate the cases for both mobile and web.
+Also, please find the below link for the demo video of the automation framework, which I have worked on to automate the cases for web application.
 
-<TBD>
+https://drive.google.com/file/d/1Mwx8YeqbNX6DMPGHo92yysftmkBvKcvO/view?usp=sharing
 
 Please feel free to clone the repo, review the code and run the code.
 
