@@ -3,6 +3,7 @@ The tool set which I have chosen to automate is as below
 •	Selenium Webdriver with Java <br/>
 •	Maven for Dependency Management <br/>
 •	Robot Framework for Behaviour Driven Development using Keywords (similar to cucumber) <br/>
+•	Robot Framework for Test reporting <br/>
 •	Eclipse as IDE <br/>
 •	Git <br/>
 
